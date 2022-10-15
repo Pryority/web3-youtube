@@ -1,6 +1,9 @@
 import React, { useState, useRef } from "react";
 import { BiCloud, BiMusic, BiPlus } from "react-icons/bi";
 import { create } from "ipfs-http-client";
+import saveToIPFS from "../../utils/saveToIPFS";
+import { useCreateAsset } from "@livepeer/react";
+
 
 export default function Upload() {
     const [title, setTitle] = useState("");
@@ -9,6 +12,22 @@ export default function Upload() {
     const [location, setLocation] = useState("");
     const [thumbnail, setThumbnail] = useState("");
     const [video, setVideo] = useState("");
+
+    const {
+        mutate: createAsset,
+        data: asset,
+        uploadProgress,
+        status,
+        error,
+    } = useCreateAsset();
+
+    const handleSubmit = async () => {
+        // Calling the uploadVideo() function
+        await uploadVideo();
+        // Calling the upload thumbnail function and getting the CID
+        const thumbnailCID = await uploadThumbnail();
+    }
+
 
     // Create a ref for thumbnail and video
     const thumbnailRef = useRef();
