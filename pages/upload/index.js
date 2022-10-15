@@ -3,6 +3,7 @@ import { BiCloud, BiMusic, BiPlus } from "react-icons/bi";
 import { create } from "ipfs-http-client";
 import saveToIPFS from "../../utils/saveToIPFS";
 import { useCreateAsset } from "@livepeer/react";
+import getContract from "../../utils/getContract";
 
 
 export default function Upload() {
@@ -22,12 +23,58 @@ export default function Upload() {
     } = useCreateAsset();
 
     const handleSubmit = async () => {
-        // Calling the uploadVideo() function
+        // Calling the uploadVideo function
         await uploadVideo();
         // Calling the upload thumbnail function and getting the CID
         const thumbnailCID = await uploadThumbnail();
-    }
+        // Creating a object to store the metadata
+        let data = {
+            video: asset?.id,
+            title,
+            description,
+            location,
+            category,
+            thumbnail: thumbnailCID,
+            UploadedDate: Date.now(),
+        };
+        // Calling the saveVideo function and passing the video metadata object
+        await saveVideo(data);
+    };
 
+    // Function to upload thumbnail to IPFS
+    const uploadThumbnail = async () => {
+        // Passing the file to the saveToIPFS function and getting its CID
+        const cid = await saveToIPFS(thumbnail);
+        // Returning the cid
+        return cid;
+    };
+
+    // Function to upload video to livepeer
+    const uploadVideo = async () => {
+        // Calling the useCreateAsset function from the useCreateAsset hook to upload the video to Livepeer
+        createAsset({
+            name: title,
+            file: video
+        });
+    };
+
+    // Function to save the video to the Smart Contract
+    const saveVideo = async () => {
+        // Get the contract from the getContract function
+        let contract = await getContract();
+
+        // Upload the video to the contract
+        await contract.uploadVideo(
+            data.video,
+            data.title,
+            data.description,
+            data.location,
+            data.category,
+            data.thumbnail,
+            false,
+            data.UploadedDate
+        );
+    };
 
     // Create a ref for thumbnail and video
     const thumbnailRef = useRef();

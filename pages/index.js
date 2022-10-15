@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link'
 import Landing from "./landing/Landing";
-import Upload from './upload/Upload';
+import Upload from './upload';
 
 export default function Home() {
   return (
@@ -9,7 +9,7 @@ export default function Home() {
       <Link href={`/`}>
         <Landing />
       </Link>
-      <Link href={`#upload`} replace>
+      <Link href={`/upload`}>
         <Upload />
       </Link>
     </div >
