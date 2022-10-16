@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useApolloClient, gql } from "@apollo/client";
+import Video from "../../components/Video";
 
 export default function Main() {
     // Creating a state to store the uploaded video
@@ -70,8 +71,15 @@ export default function Main() {
             <div className="flex-1 h-screen flex flex-col">
                 <div className="flex flex-row flex-wrap">
                     {videos.map((video, id) => (
-                        <div key={id} className="w-80">
-                            <p>{video.title}</p>
+                        <div
+                            key={id}
+                            className="w-80"
+                            onClick={() => {
+                                // Navigation to the video screen (which we will create later)
+                                window.location.href = `/video?id=${video.id}`;
+                            }}
+                        >
+                            <Video video={video} />
                         </div>
                     ))}
                 </div>
