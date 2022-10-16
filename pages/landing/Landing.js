@@ -60,7 +60,7 @@ function Landing() {
                                 >
                                     <span>{isConnected ? 'Disconnect' : 'Connect wallet'}</span>
                                 </button>
-                                <Link href='#upload'>
+                                <Link href='/upload'>
                                     <span className='bg-blue-400 text-white font-medium text-xl uppercase px-6 py-2 rounded-full cursor-pointer tracking-tighter'>Upload</span>
                                 </Link>
                             </div>

@@ -1,9 +1,9 @@
 import React, { useState, useRef } from "react";
 import { BiCloud, BiMusic, BiPlus } from "react-icons/bi";
-import { create } from "ipfs-http-client";
 import saveToIPFS from "../../utils/saveToIPFS";
 import { useCreateAsset } from "@livepeer/react";
 import getContract from "../../utils/getContract";
+import Link from "next/link";
 
 
 export default function Upload() {
@@ -22,8 +22,9 @@ export default function Upload() {
         error,
     } = useCreateAsset();
 
+    // When a user clicks on the upload button
     const handleSubmit = async () => {
-        // Calling the uploadVideo function
+        // Calling the upload video function
         await uploadVideo();
         // Calling the upload thumbnail function and getting the CID
         const thumbnailCID = await uploadThumbnail();
@@ -37,31 +38,31 @@ export default function Upload() {
             thumbnail: thumbnailCID,
             UploadedDate: Date.now(),
         };
-        // Calling the saveVideo function and passing the video metadata object
+        // Calling the saveVideo function and passing the metadata object
         await saveVideo(data);
     };
 
-    // Function to upload thumbnail to IPFS
+    // Function to upload the video to IPFS
     const uploadThumbnail = async () => {
-        // Passing the file to the saveToIPFS function and getting its CID
+        // Passing the file to the saveToIPFS function and getting the CID
         const cid = await saveToIPFS(thumbnail);
-        // Returning the cid
+        // Returning the CID
         return cid;
     };
 
-    // Function to upload video to livepeer
+    // Function to upload the video to Livepeer
     const uploadVideo = async () => {
-        // Calling the useCreateAsset function from the useCreateAsset hook to upload the video to Livepeer
+        // Calling the createAsset function from the useCreateAsset hook to upload the video
         createAsset({
             name: title,
-            file: video
+            file: video,
         });
     };
 
-    // Function to save the video to the Smart Contract
-    const saveVideo = async () => {
+    // Function to save the video to the Contract
+    const saveVideo = async (data) => {
         // Get the contract from the getContract function
-        let contract = await getContract();
+        let contract = getContract();
 
         // Upload the video to the contract
         await contract.uploadVideo(
@@ -71,7 +72,6 @@ export default function Upload() {
             data.location,
             data.category,
             data.thumbnail,
-            false,
             data.UploadedDate
         );
     };
@@ -81,13 +81,15 @@ export default function Upload() {
     const videoRef = useRef();
 
     return (
-        <div id="upload" className="w-full h-screen bg-[#1a1c1f] flex flex-row">
+        <div className="w-full h-screen bg-[#1a1c1f] flex flex-row">
             <div className="flex-1 flex flex-col">
                 <div className="mt-5 mr-10 flex  justify-end">
                     <div className="flex items-center">
-                        <button className="bg-transparent  text-[#9CA3AF] py-2 px-6 border rounded-lg  border-gray-600  mr-6">
-                            Discard
-                        </button>
+                        <Link href={'/'}>
+                            <button className="bg-transparent  text-[#9CA3AF] py-2 px-6 border rounded-lg  border-gray-600  mr-6">
+                                Discard
+                            </button>
+                        </Link>
                         <button
                             onClick={() => {
                                 handleSubmit();
