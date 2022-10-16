@@ -177,6 +177,7 @@ export default function Upload() {
                             ref={thumbnailRef}
                             onChange={(e) => {
                                 setThumbnail(e.target.files[0]);
+                                console.log(e.target.files[0]);
                             }}
                         />
                     </div>
@@ -196,6 +197,7 @@ export default function Upload() {
                                 controls
                                 src={URL.createObjectURL(video)}
                                 className="h-full rounded-md"
+                                autoPlay={false}
                             />
                         ) : (
                             <p className="text-[#9CA3AF]">Upload Video</p>

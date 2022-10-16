@@ -11,50 +11,48 @@ export default function Main() {
     // Query the videos from the the graph
     const GET_VIDEOS = gql`
     query videos(
-      $first: Int
-      $skip: Int
-      $orderBy: Video_orderBy
-      $orderDirection: OrderDirection
-      $where: Video_filter
-    ) {
-      videos(
-        first: $first
-        skip: $skip
-        orderBy: $orderBy
-        orderDirection: $orderDirection
-        where: $where
-      ) {
-        id
-        hash
-        title
-        description
-        location
-        category
-        thumbnailHash
-        isAudio
-        date
-        author
-        createdAt
-      }
-    }
-  `;
+        $first: Int
+        $skip: Int
+        $orderBy: Video_orderBy
+        $orderDirection: OrderDirection
+        $where: Video_filter
+        ) {
+        videos(
+            first: $first
+            skip: $skip
+            orderBy: $orderBy
+            orderDirection: $orderDirection
+            where: $where
+        ) {
+            id
+            hash
+            title
+            description
+            location
+            category
+            thumbnailHash
+            date
+        }
+        }
+    `;
 
     // Function to get the videos from the graph
     const getVideos = async () => {
         // Query the videos from the graph
-        client
-            .query({
-                query: GET_VIDEOS,
-                variables: {
-                    first: 200,
-                    skip: 0,
-                    orderBy: "createdAt",
-                    orderDirection: "desc",
-                },
-                fetchPolicy: "network-only",
-            })
+        console.log(client)
+        await client.query({
+            query: GET_VIDEOS,
+            variables: {
+                first: 200,
+                skip: 0,
+                orderBy: "createdAt",
+                orderDirection: "desc",
+            },
+            fetchPolicy: "network-only",
+        })
             .then(({ data }) => {
                 // Set the videos to the state
+                console.log(data)
                 setVideos(data.videos);
             })
             .catch((err) => {
@@ -66,12 +64,13 @@ export default function Main() {
         // Runs the function getVideos when the component is mounted
         getVideos();
     }, []);
+
     return (
         <div className="w-full bg-[#1a1c1f] flex flex-row">
             <div className="flex-1 h-screen flex flex-col">
                 <div className="flex flex-row flex-wrap">
-                    {videos.map((video) => (
-                        <div key={video._id} className="w-80">
+                    {videos.map((video, id) => (
+                        <div key={id} className="w-80">
                             <p>{video.title}</p>
                         </div>
                     ))}
