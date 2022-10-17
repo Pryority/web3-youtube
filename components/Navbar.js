@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { Bars4Icon } from '@heroicons/react/24/solid'
+import Link from 'next/link'
+import { Bars3Icon, CloudArrowUpIcon } from '@heroicons/react/24/solid'
 import MenuItems from './MenuItems'
 
 export default function Navbar() {
@@ -10,39 +11,31 @@ export default function Navbar() {
     };
     return (
         <nav>
-            <div className="absolute right-6 md:hidden top-6 scale-150">
-                <Bars4Icon
-                    onClick={showMenu}
-                    className="scale-150 cursor-pointer"
-                />
+            <div className="top-0 right-0 z-50 p-4 bg-white/80 backdrop-blur-lg border-b border-white/80 fixed flex justify-end w-full">
+                {!active && (
+                    <Bars3Icon
+                        onClick={showMenu}
+                        className="h-8 w-8 cursor-pointer md:hidden text-teal-600 hover:scale-105 transition ease-in-out duration-75"
+                    />
+                )}
+                <ul className='hidden md:flex md:flex-row space-x-8 text-xl tracking-widest uppercase items-center'>
+                    <li>
+                        <Link href="/home" onClick={showMenu}>
+                            <a>Home</a>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/upload" onClick={showMenu}>
+                            <div className="transition ease-in-out cursor-pointer bg-teal-500 hover:scale-[1.0162] hover:bg-sky-700 duration-75 text-secondary rounded-lg tracking-tight flex space-x-1 py-2 px-4 justify-between flex-row items-center font-semibold"
+                            >
+                                <p>Upload</p>
+                            </div>
+                        </Link>
+                    </li>
+                </ul>
             </div>
 
-            <MenuItems showMenu={showMenu} active={active} />
+            <MenuItems showMenu={showMenu} active={active} onClick={showMenu} />
         </nav>
     )
 }
-
-
-// function NavLink({ to, children }) {
-//     return <Link href={to} className={`mx-4 cursor-pointer`}>
-//         {children}
-//     </Link>
-// }
-
-// function MobileNav({ open, setOpen }) {
-//     return (
-//         <div className={`absolute top-0 left-0 h-screen w-screen bg-white transform ${open ? "-translate-x-0" : "-translate-x-full"} transition-transform duration-300 ease-in-out filter drop-shadow-md `}>
-//             <div className="flex items-center justify-center filter drop-shadow-md bg-white h-20"> {/*logo container*/}
-//                 <Link className="text-xl font-semibold" href="/">LOGO</Link>
-//             </div>
-//             <div className="flex flex-col ml-4">
-//                 <Link className="text-xl font-medium my-4" href="/about" onClick={() => setTimeout(() => { setOpen(!open) }, 100)}>
-//                     About
-//                 </Link>
-//                 <Link className="text-xl font-normal my-4" href="/contact" onClick={() => setTimeout(() => { setOpen(!open) }, 100)}>
-//                     Contact
-//                 </Link>
-//             </div>
-//         </div>
-//     )
-// }

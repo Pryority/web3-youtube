@@ -83,23 +83,7 @@ export default function Upload() {
 
     return (
         <div className="min-h-screen flex flex-col justify-center p-8 items-center w-full">
-            <div className="flex flex-col space-y-8 w-full md:w-2/3 lg:w-3/5 xl:w-1/2">
-                <div className="flex justify-between md:justify-end md:space-x-4 w-full">
-                    <Link href={'/'}>
-                        <button className="bg-transparent text-primary py-2 px-6 border rounded-lg transition ease-in-out bg-1 hover:bg-red-500 duration-300 text-primary hover:text-secondary border-gray-600">
-                            Discard
-                        </button>
-                    </Link>
-                    <button
-                        onClick={() => {
-                            handleSubmit();
-                        }}
-                        className="transition ease-in-out bg-sky-500 hover:scale-110 hover:bg-teal-500 duration-300 text-secondary rounded-lg flex space-x-1 px-4 justify-between flex-row items-center"
-                    >
-                        <p>Upload</p>
-                        <CloudArrowUpIcon className="h-4 w-4 text-white" />
-                    </button>
-                </div>
+            <div className="flex flex-col space-y-8 w-full md:w-2/3 lg:w-3/5 xl:w-1/2 pt-16">
 
 
                 <div className="flex flex-col w-full">
@@ -152,7 +136,7 @@ export default function Upload() {
                 </div>
 
                 <div className="flex flex-col w-full">
-                    <label className="text-primary mt-10 text-sm">Thumbnail</label>
+                    <label className="text-primary text-sm">Thumbnail</label>
                     <div
                         onClick={() => {
                             thumbnailRef.current.click();
@@ -216,6 +200,23 @@ export default function Upload() {
                         console.log(e.target.files[0]);
                     }}
                 />
+
+                <div className="flex justify-between md:justify-end md:space-x-4 w-full">
+                    <Link href={'/'}>
+                        <button className="bg-transparent text-primary py-2 px-6 border rounded-lg transition ease-in-out bg-1 hover:bg-red-500 duration-300 text-primary hover:text-secondary border-gray-600">
+                            Discard
+                        </button>
+                    </Link>
+                    <button
+                        onClick={() => {
+                            handleSubmit();
+                        }}
+                        className="transition ease-in-out bg-sky-500 hover:scale-110 hover:bg-teal-500 duration-300 text-secondary rounded-lg flex space-x-1 px-4 justify-between flex-row items-center"
+                    >
+                        <p>Upload</p>
+                        <CloudArrowUpIcon className="h-4 w-4 text-white" />
+                    </button>
+                </div>
             </div>
         </div >
     )

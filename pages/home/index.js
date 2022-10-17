@@ -68,7 +68,7 @@ export default function Main() {
 
     return (
         <div className="min-h-screen w-full flex flex-col background">
-            <div className="flex flex-col w-full h-full">
+            <div className="flex flex-col w-full h-full pt-16">
                 <div className="flex flex-col justify-between lg:flex-col">
                     <div className="p-2">
                         {/* <VideoComponent video={video} /> */}

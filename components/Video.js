@@ -1,7 +1,7 @@
 import React from "react";
-import { BiCheck } from "react-icons/bi";
 import moment from "moment";
 import Image from 'next/image';
+import { CheckIcon } from "@heroicons/react/24/solid";
 
 export default function Video({ horizontal, video }) {
     return (
@@ -27,7 +27,7 @@ export default function Video({ horizontal, video }) {
                 </p>
                 <p className="text-sm flex items-center text-[#878787] mt-1 cursor-pointer">
                     {video?.author?.slice(0, 9)}...{" "}
-                    <BiCheck size="20px" color="green" className="ml-1" />
+                    <CheckIcon className='h-6 w-6 text-green-600 ml-1' />
                 </p>
             </div>
         </div >
