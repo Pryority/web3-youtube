@@ -1,9 +1,10 @@
 import React, { useState, useRef } from "react";
-import { BiCloud, BiMusic, BiPlus } from "react-icons/bi";
 import saveToIPFS from "../../utils/saveToIPFS";
 import { useCreateAsset } from "@livepeer/react";
 import getContract from "../../utils/getContract";
 import Link from "next/link";
+import { CloudArrowUpIcon } from "@heroicons/react/24/solid";
+import { PlusSmallIcon, ArrowUpCircleIcon } from '@heroicons/react/24/outline'
 
 
 export default function Upload() {
@@ -81,140 +82,139 @@ export default function Upload() {
     const videoRef = useRef();
 
     return (
-        <div className="w-full h-screen bg-[#1a1c1f] flex flex-row">
-            <div className="flex-1 flex flex-col">
-                <div className="mt-5 mr-10 flex  justify-end">
-                    <div className="flex items-center">
-                        <Link href={'/'}>
-                            <button className="bg-transparent  text-[#9CA3AF] py-2 px-6 border rounded-lg  border-gray-600  mr-6">
-                                Discard
-                            </button>
-                        </Link>
-                        <button
-                            onClick={() => {
-                                handleSubmit();
-                            }}
-                            className="bg-blue-500 hover:bg-blue-700 text-white  py-2  rounded-lg flex px-4 justify-between flex-row items-center"
-                        >
-                            <BiCloud />
-                            <p className="ml-2">Upload</p>
-                        </button>
-                    </div>
+        <div className="min-h-screen flex flex-col justify-center space-y-8 p-8">
+            <div className="flex justify-between md:justify-end md:space-x-4 w-full">
+                <Link href={'/'}>
+                    <button className="bg-transparent text-primary py-2 px-6 border rounded-lg transition ease-in-out bg-1 hover:bg-red-500 duration-300 text-primary hover:text-secondary border-gray-600">
+                        Discard
+                    </button>
+                </Link>
+                <button
+                    onClick={() => {
+                        handleSubmit();
+                    }}
+                    className="transition ease-in-out bg-sky-500 hover:scale-110 hover:bg-teal-500 duration-300 text-secondary rounded-lg flex space-x-1 px-4 justify-between flex-row items-center"
+                >
+                    <p>Upload</p>
+                    <CloudArrowUpIcon className="h-4 w-4 text-white" />
+                </button>
+            </div>
+
+
+            <div className="flex flex-col">
+                <label className="text-primary text-sm">Title</label>
+                <input
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    placeholder="Star Wars: Episode IV - A New Hope"
+                    className={`placeholder:text-gray-600 rounded-md mt-2 h-12 p-2 bg-1 verification-outline ${title ? 'border-lime-500 border-solid' : 'hover:border-solid hover:border-teal-500'} focus:outline-none`}
+                />
+            </div>
+            <div className="flex flex-col">
+                <label className="text-primary">Description</label>
+                <textarea
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    placeholder="The Imperial Forces -- under orders from cruel Darth Vader (David Prowse) -- hold Princess Leia (Carrie Fisher) hostage, in their efforts to quell the rebellion against the Galactic Empire. Luke Skywalker (Mark Hamill) and Han Solo (Harrison Ford), captain of the Millennium Falcon, work together with the companionable droid duo R2-D2 (Kenny Baker) and C-3PO (Anthony Daniels) to rescue the beautiful princess, help the Rebel Alliance, and restore freedom and justice to the Galaxy."
+                    className={`w-full h-32 placeholder:text-gray-600 rounded-md mt-2 p-2 bg-1 verification-outline ${description ? 'border-lime-500 border-solid' : 'hover:border-solid hover:border-teal-500'} focus:outline-none`}
+                />
+            </div>
+            <div className="flex flex-col md:flex-row md:w-[90%] justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
+                <div className="flex flex-col w-full md:w-2/5">
+                    <label className="text-primary text-sm">Location</label>
+                    <input
+                        value={location}
+                        onChange={(e) => setLocation(e.target.value)}
+                        type="text"
+                        placeholder="Bali - Indonesia"
+                        className={`placeholder:text-gray-600 rounded-md mt-2 h-12 p-2 bg-1 verification-outline ${location ? 'border-lime-500 border-solid' : 'hover:border-solid hover:border-teal-500'} focus:outline-none`}
+                    />
                 </div>
-                <div className="flex flex-col m-10     mt-5  lg:flex-row">
-                    <div className="flex lg:w-3/4 flex-col ">
-                        <label className="text-[#9CA3AF]  text-sm">Title</label>
-                        <input
-                            value={title}
-                            onChange={(e) => setTitle(e.target.value)}
-                            placeholder="Rick Astley - Never Gonna Give You Up (Official Music Video)"
-                            className="w-[90%] text-white placeholder:text-gray-600  rounded-md mt-2 h-12 p-2 border  bg-[#1a1c1f] border-[#444752] focus:outline-none"
-                        />
-                        <label className="text-[#9CA3AF] mt-10">Description</label>
-                        <textarea
-                            value={description}
-                            onChange={(e) => setDescription(e.target.value)}
-                            placeholder="Never Gonna Give You Up was a global smash on its release in July 1987, topping the charts in 25 countries including Rick’s native UK and the US Billboard Hot 100.  It also won the Brit Award for Best single in 1988. Stock Aitken and Waterman wrote and produced the track which was the lead-off single and lead track from Rick’s debut LP “Whenever You Need Somebody."
-                            className="w-[90%] text-white h-32 placeholder:text-gray-600  rounded-md mt-2 p-2 border  bg-[#1a1c1f] border-[#444752] focus:outline-none"
-                        />
+                <div className="flex flex-col w-full md:w-2/5">
+                    <label className="text-primary text-sm">Category</label>
+                    <select
+                        value={category}
+                        onChange={(e) => setCategory(e.target.value)}
+                        className={`placeholder:text-gray-600  rounded-md mt-2 h-12 p-2 bg-1 verification-outline ${category ? 'border-lime-500 border-solid' : 'hover:border-solid hover:border-teal-500'} focus:outline-none`}
+                    >
+                        <option>Music</option>
+                        <option>Sports</option>
+                        <option>Gaming</option>
+                        <option>News</option>
+                        <option>Entertainment</option>
+                        <option>Education</option>
+                        <option>Science & Technology</option>
+                        <option>Travel</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+            </div>
 
-                        <div className="flex flex-row mt-10 w-[90%]  justify-between">
-                            <div className="flex flex-col w-2/5    ">
-                                <label className="text-[#9CA3AF]  text-sm">Location</label>
-                                <input
-                                    value={location}
-                                    onChange={(e) => setLocation(e.target.value)}
-                                    type="text"
-                                    placeholder="Bali - Indonesia"
-                                    className="w-[90%] text-white placeholder:text-gray-600  rounded-md mt-2 h-12 p-2 border  bg-[#1a1c1f] border-[#444752] focus:outline-none"
-                                />
-                            </div>
-                            <div className="flex flex-col w-2/5    ">
-                                <label className="text-[#9CA3AF]  text-sm">Category</label>
-                                <select
-                                    value={category}
-                                    onChange={(e) => setCategory(e.target.value)}
-                                    className="w-[90%] text-white placeholder:text-gray-600  rounded-md mt-2 h-12 p-2 border  bg-[#1a1c1f] border-[#444752] focus:outline-none"
-                                >
-                                    <option>Music</option>
-                                    <option>Sports</option>
-                                    <option>Gaming</option>
-                                    <option>News</option>
-                                    <option>Entertainment</option>
-                                    <option>Education</option>
-                                    <option>Science & Technology</option>
-                                    <option>Travel</option>
-                                    <option>Other</option>
-                                </select>
-                            </div>
-                        </div>
-                        <label className="text-[#9CA3AF]  mt-10 text-sm">Thumbnail</label>
-
-                        <div
+            <div className="flex flex-col">
+                <label className="text-primary mt-10 text-sm">Thumbnail</label>
+                <div
+                    onClick={() => {
+                        thumbnailRef.current.click();
+                    }}
+                    className={`verification-outline-dashed ${thumbnail ? 'border-lime-500 border-solid' : 'border-dashed hover:border-solid hover:border-teal-500'}`}
+                >
+                    {thumbnail ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
                             onClick={() => {
                                 thumbnailRef.current.click();
                             }}
-                            className="border-2 w-64 border-gray-600  border-dashed rounded-md mt-2 p-2  h-36 items-center justify-center flex"
-                        >
-                            {thumbnail ? (
-                                // eslint-disable-next-line @next/next/no-img-element
-                                <img
-                                    onClick={() => {
-                                        thumbnailRef.current.click();
-                                    }}
-                                    src={URL.createObjectURL(thumbnail)}
-                                    alt="thumbnail"
-                                    className="h-full rounded-md"
-                                />
-                            ) : (
-                                <BiPlus size={40} color="gray" />
-                            )}
-                        </div>
-
-                        <input
-                            type="file"
-                            className="hidden"
-                            ref={thumbnailRef}
-                            onChange={(e) => {
-                                setThumbnail(e.target.files[0]);
-                                console.log(e.target.files[0]);
-                            }}
+                            src={URL.createObjectURL(thumbnail)}
+                            alt="thumbnail"
+                            className="h-full rounded-md"
                         />
-                    </div>
-
-                    <div
-                        onClick={() => {
-                            videoRef.current.click();
-                        }}
-                        className={
-                            video
-                                ? " w-96   rounded-md  h-64 items-center justify-center flex"
-                                : "border-2 border-gray-600  w-96 border-dashed rounded-md mt-8   h-64 items-center justify-center flex"
-                        }
-                    >
-                        {video ? (
-                            <video
-                                controls
-                                src={URL.createObjectURL(video)}
-                                className="h-full rounded-md"
-                                autoPlay={false}
-                            />
-                        ) : (
-                            <p className="text-[#9CA3AF]">Upload Video</p>
-                        )}
-                    </div>
+                    ) : (
+                        <PlusSmallIcon className="h-6 w-6" />
+                    )}
                 </div>
-                <input
-                    type="file"
-                    className="hidden"
-                    ref={videoRef}
-                    accept={"video/*"}
-                    onChange={(e) => {
-                        setVideo(e.target.files[0]);
-                        console.log(e.target.files[0]);
-                    }}
-                />
             </div>
-        </div>
+
+            <input
+                type="file"
+                className="hidden"
+                ref={thumbnailRef}
+                onChange={(e) => {
+                    setThumbnail(e.target.files[0]);
+                    console.log(e.target.files[0]);
+                }}
+            />
+
+            <div
+                onClick={() => {
+                    videoRef.current.click();
+                }}
+                className={`verification-outline-dashed ${video ? 'border-lime-500 border-solid' : 'border-dashed hover:border-solid hover:border-teal-500'}`}
+            >
+                {video ? (
+                    <video
+                        controls
+                        src={URL.createObjectURL(video)}
+                        className="h-full rounded-md"
+                        autoPlay={false}
+                    />
+                ) : (
+                    <div className='flex flex-col space-y-2 justify-center items-center'>
+                        <ArrowUpCircleIcon className="h-6 w-6" />
+                        <p>Upload Video</p>
+                    </div>
+                )}
+            </div>
+
+            <input
+                type="file"
+                className="hidden"
+                ref={videoRef}
+                accept={"video/*"}
+                onChange={(e) => {
+                    setVideo(e.target.files[0]);
+                    console.log(e.target.files[0]);
+                }}
+            />
+        </div >
     )
 }

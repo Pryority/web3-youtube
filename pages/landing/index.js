@@ -28,7 +28,7 @@ function Landing() {
     return (
         <>
             {/* Creating a hero component with black background and centering everything in the screen */}
-            <section className="relative bg-black flex flex-col w-full h-screen justify-center items-center">
+            <section className="relative bg-1 flex flex-col min-h-screen justify-center items-center">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6">
                     <div className="pt-32 pb-12 md:pt-40 md:pb-20">
                         <div className="text-center pb-12 md:pb-16">
@@ -43,7 +43,7 @@ function Landing() {
                             </h1>
                             <div className="max-w-3xl mx-auto flex flex-col justify-center items-center space-y-4">
                                 <p
-                                    className="text-xl text-gray-400 mb-8"
+                                    className="text-md md:text-xl tracking-wide text-gray-400 mb-8"
                                     data-aos="zoom-y-out"
                                     data-aos-delay="150"
                                 >
@@ -52,7 +52,7 @@ function Landing() {
                                     their privacy.
                                 </p>
                                 <button
-                                    className="items-center  bg-white rounded-full w-1/5 font-medium  p-4 shadow-lg"
+                                    className="items-center  bg-white rounded-full font-medium  p-4 shadow-lg"
                                     onClick={() => {
                                         // Calling the connectWallet function when user clicks on the button
                                         connectWallet();
