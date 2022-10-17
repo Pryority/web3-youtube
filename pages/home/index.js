@@ -67,23 +67,38 @@ export default function Main() {
     }, []);
 
     return (
-        <div className="w-full bg-[#1a1c1f] flex flex-row">
-            <div className="flex-1 h-screen flex flex-col">
-                <div className="flex flex-row flex-wrap">
-                    {videos.map((video, id) => (
-                        <div
-                            key={id}
-                            className="w-80"
-                            onClick={() => {
-                                // Navigation to the video screen (which we will create later)
-                                window.location.href = `/video?id=${video.id}`;
-                            }}
-                        >
-                            <Video video={video} />
+        <div className="min-h-screen w-full flex flex-col background">
+            <div className="flex flex-col w-full h-full">
+                <div className="flex flex-col justify-between lg:flex-col">
+                    <div className="p-2">
+                        {/* <VideoComponent video={video} /> */}
+                    </div>
+                    <div className="flex flex-col w-full items-center justify-center">
+                        <div className="flex flex-col items-start p-4 justify-center w-full">
+                            <h4 className="text-4xl lg:text-3xl font-bold text-stone-500">
+                                Home
+                            </h4>
                         </div>
-                    ))}
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full gap-4 p-4 justify-center items-center">
+                            {videos.map((video) => (
+                                <div key={video.id}
+                                    className='justify-center items-center flex relative w-full'
+                                >
+                                    <div
+                                        onClick={() => {
+                                            // Navigation to the video screen (which we will create later)
+                                            window.location.href = `/video?id=${video.id}`;
+                                        }}
+                                        className='flex w-full'
+                                    >
+                                        <Video video={video} horizontal={true} />
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }

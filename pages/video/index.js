@@ -7,6 +7,24 @@ export default function VideoPage() {
     const [video, setVideo] = useState(null);
     const [relatedVideos, setRelatedVideos] = useState([]);
 
+    const responsive = {
+        desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: 3,
+            slidesToSlide: 3 // optional, default to 1.
+        },
+        tablet: {
+            breakpoint: { max: 1024, min: 464 },
+            items: 2,
+            slidesToSlide: 2 // optional, default to 1.
+        },
+        mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 1,
+            slidesToSlide: 1 // optional, default to 1.
+        }
+    };
+
     const client = useApolloClient();
     const getUrlVars = () => {
         var vars = {};
@@ -20,31 +38,31 @@ export default function VideoPage() {
     };
 
     const GET_VIDEOS = gql`
-    query videos(
-      $first: Int
-      $skip: Int
-      $orderBy: Video_orderBy
-      $orderDirection: OrderDirection
-      $where: Video_filter
-    ) {
-      videos(
-        first: $first
-        skip: $skip
-        orderBy: $orderBy
-        orderDirection: $orderDirection
-        where: $where
-      ) {
-        id
-        hash
-        title
-        description
-        location
-        category
-        thumbnailHash
-        date
-      }
-    }
-  `;
+        query videos(
+        $first: Int
+        $skip: Int
+        $orderBy: Video_orderBy
+        $orderDirection: OrderDirection
+        $where: Video_filter
+        ) {
+        videos(
+            first: $first
+            skip: $skip
+            orderBy: $orderBy
+            orderDirection: $orderDirection
+            where: $where
+        ) {
+            id
+            hash
+            title
+            description
+            location
+            category
+            thumbnailHash
+            date
+        }
+        }
+    `;
 
     const getRelatedVideos = () => {
         client
@@ -76,7 +94,7 @@ export default function VideoPage() {
     }, []);
 
     return (
-        <div className="min-h-screen w-full flex flex-col bg-[#1e1e1e]">
+        <div className="min-h-screen w-full flex flex-col">
             <div className="flex flex-col w-full h-full">
                 {video && (
                     <div className="flex flex-col justify-between lg:flex-col">
@@ -89,7 +107,7 @@ export default function VideoPage() {
                                     Related Videos
                                 </h4>
                             </div>
-                            <div className="grid grid-cols-1 lg:grid-cols-3 w-full gap-4 p-4 justify-center items-center">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full gap-4 p-4 justify-center items-center">
                                 {relatedVideos.map((video) => (
                                     <div key={video.id}
                                         className='justify-center items-center flex relative w-full'
@@ -104,7 +122,6 @@ export default function VideoPage() {
                                         </div>
                                     </div>
                                 ))}
-
                             </div>
                         </div>
                     </div>

@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .bg-main {
+    @apply bg-[#fcffff] dark:bg-[#1e1e1e];
+  }
+  .bg-1 {
+    @apply bg-[#f7ffff] dark:bg-[#1e1e1e];
+  }
+}
+
 html,
 body {
   padding: 0;
@@ -17,14 +26,4 @@ a {
 
 * {
   box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
 }
