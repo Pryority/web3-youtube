@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { Bars3Icon, CloudArrowUpIcon } from '@heroicons/react/24/solid'
 import MenuItems from './MenuItems'
@@ -9,6 +9,7 @@ export default function Navbar() {
     const showMenu = () => {
         setActive(!active);
     };
+
     return (
         <nav>
             <div className="top-0 right-0 z-50 p-4 bg-white/80 dark:bg-stone-900/80 backdrop-blur-lg border-b border-white/80 dark:border-stone-900/80 fixed flex justify-between items-center w-full">
@@ -21,6 +22,7 @@ export default function Navbar() {
                         />
                     </>
                 )}
+
                 <ul className='hidden md:flex md:flex-row space-x-8 text-xl tracking-widest dark:text-white uppercase items-center'>
                     <li>
                         <Link href="/home" onClick={showMenu}>
