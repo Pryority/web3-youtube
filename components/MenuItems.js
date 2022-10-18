@@ -6,7 +6,7 @@ export default function MenuItems({ showMenu, active }) {
         <ul
             className={
                 active
-                    ? "flex-col flex items-end fixed inset-0 left-1/4 uppercase bg-white/80 text-3xl tracking-tighter font-semibold backdrop-blur-lg space-y-6 z-50 justify-start p-4 md:hidden text-teal-900"
+                    ? "flex-col flex items-end fixed inset-0 left-1/4 uppercase bg-white/80 dark:bg-stone-900/80 text-3xl tracking-tighter font-semibold backdrop-blur-lg space-y-6 z-50 justify-start p-4 md:hidden text-teal-900 dark:text-teal-500"
                     : "hidden"
             }
         >

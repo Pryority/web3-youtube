@@ -94,16 +94,16 @@ export default function VideoPage() {
     }, []);
 
     return (
-        <div className="min-h-screen w-full flex flex-col">
+        <div className="min-h-screen w-full flex flex-col bg-white/80 dark:bg-stone-900/80 ">
             <div className="flex flex-col w-full h-full pt-24">
                 {video && (
                     <div className="flex flex-col justify-between lg:flex-col">
-                        <div className="p-2">
+                        <div className="p-2 border-b border-stone-700">
                             <VideoComponent video={video} />
                         </div>
                         <div className="flex flex-col w-full items-center justify-center">
-                            <div className="flex flex-col items-start p-4 justify-center w-full">
-                                <h4 className="text-xl lg:text-3xl font-bold text-stone-500">
+                            <div className="flex flex-col items-start px-4 mt-8 justify-center w-full">
+                                <h4 className="text-xl lg:text-3xl font-bold text-stone-500 dark:text-stone-200">
                                     Related Videos
                                 </h4>
                             </div>

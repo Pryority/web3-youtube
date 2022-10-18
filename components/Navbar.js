@@ -15,7 +15,7 @@ export default function Navbar() {
                 {!active && (
                     <Bars3Icon
                         onClick={showMenu}
-                        className="h-8 w-8 cursor-pointer md:hidden text-teal-600 hover:scale-105 transition ease-in-out duration-75"
+                        className="h-8 w-8 cursor-pointer md:hidden text-teal-600 dark:text-teal-500 hover:text-teal-600 transition ease-in-out duration-75"
                     />
                 )}
                 <ul className='hidden md:flex md:flex-row space-x-8 text-xl tracking-widest dark:text-white uppercase items-center'>
