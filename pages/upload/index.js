@@ -84,14 +84,14 @@ export default function Upload() {
 
     return (
         <div className="min-h-screen flex flex-col bg-main justify-center p-8 items-center w-full">
-            <div className="flex flex-col space-y-8 w-full md:w-2/3 lg:w-3/5 xl:w-1/2 pt-16">
+            <div className="flex flex-col space-y-8 w-full md:w-2/3 lg:w-3/5 xl:w-1/2 py-16">
                 <div className="flex flex-col w-full">
                     <label className="text-primary text-sm">Title</label>
                     <input
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                         placeholder="Star Wars: Episode IV - A New Hope"
-                        className={`placeholder:text-gray-600 rounded-md mt-2 h-12 p-2 bg-1 verification-outline ${title ? 'border-lime-500 border-solid' : 'hover:border-solid hover:border-teal-500'} focus:outline-none`}
+                        className={`placeholder:text-gray-600 text-primary rounded-md mt-2 h-12 p-2 bg-1 verification-outline ${title ? 'border-lime-500 border-solid' : 'hover:border-solid hover:border-teal-500'} focus:outline-none`}
                     />
                 </div>
                 <div className="flex flex-col w-full">
@@ -100,7 +100,7 @@ export default function Upload() {
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                         placeholder="The Imperial Forces -- under orders from cruel Darth Vader (David Prowse) -- hold Princess Leia (Carrie Fisher) hostage, in their efforts to quell the rebellion against the Galactic Empire. Luke Skywalker (Mark Hamill) and Han Solo (Harrison Ford), captain of the Millennium Falcon, work together with the companionable droid duo R2-D2 (Kenny Baker) and C-3PO (Anthony Daniels) to rescue the beautiful princess, help the Rebel Alliance, and restore freedom and justice to the Galaxy."
-                        className={`w-full h-32 placeholder:text-gray-600 rounded-md mt-2 p-2 bg-1 verification-outline ${description ? 'border-lime-500 border-solid' : 'hover:border-solid hover:border-teal-500'} focus:outline-none`}
+                        className={`w-full h-32 placeholder:text-gray-600 text-primary rounded-md mt-2 p-2 bg-1 verification-outline ${description ? 'border-lime-500 border-solid' : 'hover:border-solid hover:border-teal-500'} focus:outline-none`}
                     />
                 </div>
                 <div className="flex flex-col md:flex-row md:w-[90%] justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
@@ -111,7 +111,7 @@ export default function Upload() {
                             onChange={(e) => setLocation(e.target.value)}
                             type="text"
                             placeholder="Bali - Indonesia"
-                            className={`placeholder:text-gray-600 rounded-md mt-2 h-12 p-2 bg-1 verification-outline ${location ? 'border-lime-500 border-solid' : 'hover:border-solid hover:border-teal-500'} focus:outline-none`}
+                            className={`placeholder:text-gray-600 text-primary rounded-md mt-2 h-12 p-2 bg-1 verification-outline ${location ? 'border-lime-500 border-solid' : 'hover:border-solid hover:border-teal-500'} focus:outline-none`}
                         />
                     </div>
                     <div className="flex flex-col w-full md:w-2/5">
@@ -119,7 +119,7 @@ export default function Upload() {
                         <select
                             value={category}
                             onChange={(e) => setCategory(e.target.value)}
-                            className={`text-slate-600 cursor-pointer rounded-md mt-2 h-12 p-2 bg-1 verification-outline ${category ? 'border-lime-500 border-solid' : 'hover:border-solid hover:border-teal-500'} focus:outline-none`}
+                            className={`text-primary cursor-pointer rounded-md mt-2 h-12 p-2 bg-1 verification-outline ${category ? 'border-lime-500 border-solid' : 'hover:border-solid hover:border-teal-500'} focus:outline-none`}
                         >
                             <option>Music</option>
                             <option>Sports</option>
@@ -150,7 +150,7 @@ export default function Upload() {
                                 }}
                                 src={URL.createObjectURL(thumbnail)}
                                 alt="thumbnail"
-                                className="h-full rounded-md"
+                                className="h-full rounded-md object-cover"
                             />
                         ) : (
                             <div className='flex flex-col space-y-2 justify-center items-center'>
@@ -181,7 +181,7 @@ export default function Upload() {
                         <video
                             controls
                             src={URL.createObjectURL(video)}
-                            className="h-full rounded-md"
+                            className="h-full rounded-md object-cover"
                             autoPlay={false}
                         />
                     ) : (

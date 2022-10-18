@@ -95,7 +95,7 @@ export default function VideoPage() {
 
     return (
         <div className="min-h-screen w-full flex flex-col bg-white/80 dark:bg-stone-900/80 ">
-            <div className="flex flex-col w-full h-full pt-24">
+            <div className="flex flex-col w-full h-full pt-24 pb-16">
                 {video && (
                     <div className="flex flex-col justify-between lg:flex-col">
                         <div className="p-2 border-b border-stone-700">
