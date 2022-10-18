@@ -14,8 +14,6 @@
 ---
 ## 📦 Clone this dApp
 
-> clone/fork 🎞 Blocktube:
-
 ```bash
 git clone https://github.com/pryority/web3-youtube.git
 ```
