@@ -8,7 +8,7 @@
 
 ### ![Demo Image 1](./assets/demo-images/web3-yt-demo-1.png)
 ### ![Demo Image 1](./assets/demo-images/web3-yt-demo-3.png)
-### ![Demo Image 1](./assets/demo-images/web3-yt-demo-2.png)
+### ![Demo Image 1](./assets/demo-images/web3-yt-demo-4.png)
 ### ![Demo Image 1](./assets/demo-images/web3-yt-demo-2.png)
 
 ---
