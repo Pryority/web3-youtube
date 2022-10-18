@@ -6,7 +6,7 @@ import { CheckIcon } from "@heroicons/react/24/solid";
 export default function Video({ horizontal, video }) {
     return (
         <div
-            className='flex flex-col w-full justify-center items-center bg-1 shadow'
+            className='flex flex-col w-full justify-center items-center bg-1 shadow rounded-sm'
         >
             <div
                 className='w-full h-48 relative'
@@ -14,7 +14,7 @@ export default function Video({ horizontal, video }) {
                 <Image
                     src={`https://ipfs.io/ipfs/${video.thumbnailHash}`}
                     alt=""
-                    className="object-cover object-center absolute cursor-pointer"
+                    className="object-cover object-center absolute cursor-pointer rounded-t-sm"
                     layout="fill"
                 />
             </div>

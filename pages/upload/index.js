@@ -153,7 +153,10 @@ export default function Upload() {
                                 className="h-full rounded-md"
                             />
                         ) : (
-                            <PlusSmallIcon className="h-6 w-6" />
+                            <div className='flex flex-col space-y-2 justify-center items-center'>
+                                <PlusSmallIcon className="h-6 w-6" />
+                                <p>Upload Thumbnail</p>
+                            </div>
                         )}
                     </div>
                 </div>
