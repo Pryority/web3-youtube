@@ -74,7 +74,7 @@ export default function Upload() {
             data.location,
             data.category,
             data.thumbnail,
-            data.UploadedDate
+            data.date
         );
     };
 

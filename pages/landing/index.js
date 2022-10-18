@@ -28,7 +28,7 @@ function Landing() {
     return (
         <>
             {/* Creating a hero component with black background and centering everything in the screen */}
-            <section className="bg-1 flex flex-col space-y-4 min-h-screen justify-center items-center border w-full">
+            <section className="bg-1 flex flex-col space-y-4 min-h-screen justify-center items-center w-full">
                 <div className="flex flex-col space-y-8 w-full items-center md:w-2/3 lg:w-3/5 xl:w-1/2">
                     <div className='flex flex-col w-full items-center'>
                         <h1

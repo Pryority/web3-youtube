@@ -1,13 +1,18 @@
-# Sample Hardhat Project
+# 🎞 Blocktube
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+## A Web3 Youtube Clone
 
-Try running some of the following tasks:
+> 🌐 UPLOAD VIDEO - Connect your externally owned crypto address to this dApp to upload (mint) videos to a dedicated smart contract on Polygon. The videos you upload as NFT's will be soon able to be traded and auctioned.
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
+> 🎥 WATCH VIDEO - View video NFTs that other people minted thanks to the public nature of blockchain technology.
+
+### [Demo Image 1](./assets/demo-images/web3-yt-demo-1.png)
+
+---
+### 📦 Clone this dApp
+
+> clone/fork 🎞 Blocktube:
+
+```bash
+git clone https://github.com/pryority/web3-youtube.git
 ```
