@@ -15,7 +15,9 @@ export default function Navbar() {
             <div className="top-0 right-0 z-50 p-4 bg-white/80 dark:bg-stone-900/80 backdrop-blur-lg border-b border-white/80 dark:border-stone-900/80 fixed flex justify-between items-center w-full">
                 {!active && (
                     <>
-                        <h1 className='text-3xl tracking-tighter font-semibold text-primary'>BlockTube</h1>
+                        <Link href={'/'}>
+                            <h1 className='text-3xl tracking-tighter font-semibold text-primary cursor-pointer'>BlockTube</h1>
+                        </Link>
                         <Bars3Icon
                             onClick={showMenu}
                             className="h-8 w-8 cursor-pointer md:hidden text-teal-600 dark:text-teal-500 hover:text-teal-600 transition ease-in-out duration-75"

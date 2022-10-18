@@ -52,15 +52,17 @@ function Landing() {
                         </p>
                     </div>
                     <div className='md:pt-16'>
-                        <button
-                            className="text-sm button-primary w-[140px]"
-                            onClick={() => {
-                                // Calling the connectWallet function when user clicks on the button
-                                connectWallet();
-                            }}
-                        >
-                            <span>{isConnected ? 'Disconnect' : 'Connect wallet'}</span>
-                        </button>
+                        <Link href={'/home'}>
+                            <button
+                                className="text-sm button-primary w-[140px]"
+                                onClick={() => {
+                                    // Calling the connectWallet function when user clicks on the button
+                                    connectWallet();
+                                }}
+                            >
+                                <span>{isConnected ? 'Disconnect' : 'Connect wallet'}</span>
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </section>
