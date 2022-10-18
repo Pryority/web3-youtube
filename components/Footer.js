@@ -44,7 +44,7 @@ export default function Footer() {
     }, [])
     return (
         <nav>
-            <div className="bottom-0 right-0 z-50 p-1 bg-white/80 dark:bg-stone-900/80 backdrop-blur-lg border-b border-white/80 dark:border-stone-900/80 fixed flex justify-between items-center w-full">
+            <div className="bottom-0 right-0 z-50 p-1 bg-white/80 dark:bg-stone-900/80 backdrop-blur-lg border-b border-white/80 dark:border-stone-900/80 fixed flex justify-between items-center w-full pl-4">
                 <h3 className='font-extralight text-sm text-stone-500'>{address.toString().substring(0, 5) + '...' + address.toString().substring(address.length, address.length - 5)}</h3>
                 <button
                     className={`text-xs bg-stone-900 text-stone-500 px-2 py-1 rounded ${isConnected ? 'hover:bg-red-500' : 'hover:bg-green-600'} hover:text-[#fcffff]`}

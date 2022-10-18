@@ -19,7 +19,7 @@
     @apply border border-[#aaadad] transition ease-in-out duration-300 rounded-md mt-2 p-2 h-36 items-center justify-center flex;
   }
   .verification-outline-dashed {
-    @apply border-2 border-[#aaadad] cursor-pointer transition ease-in-out duration-300 rounded-md text-primary mt-2 p-2 hover:text-teal-800 h-56 md:h-64 lg:h-80 items-center justify-center flex;
+    @apply border-2 border-[#aaadad] cursor-pointer transition ease-in-out duration-300 rounded-md text-primary mt-2 p-2 hover:text-teal-800 h-56 md:h-64 lg:h-80 items-center justify-center;
   }
   .button-primary {
     @apply cursor-pointer transition ease-in-out duration-100 rounded-md p-2 text-teal-50 gr-1 hover:bg-teal-800 hover:text-[#fcffff] hover:gr-2 flex flex-col items-center justify-center bg-1 border dark:border-teal-500;

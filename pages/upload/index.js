@@ -84,7 +84,7 @@ export default function Upload() {
 
     return (
         <div className="min-h-screen flex flex-col bg-main justify-center p-8 items-center w-full">
-            <div className="flex flex-col space-y-8 w-full md:w-2/3 lg:w-3/5 xl:w-1/2 py-16">
+            <div className="flex flex-col space-y-8 w-full md:w-2/3 lg:w-3/5 xl:w-1/2 p-16">
                 <div className="flex flex-col w-full">
                     <label className="text-primary text-sm">Title</label>
                     <input
