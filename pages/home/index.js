@@ -46,7 +46,7 @@ export default function Main() {
             variables: {
                 first: 200,
                 skip: 0,
-                orderBy: "createdAt",
+                orderBy: "date",
                 orderDirection: "desc",
             },
             fetchPolicy: "network-only",
@@ -67,7 +67,7 @@ export default function Main() {
     }, []);
 
     return (
-        <div className="min-h-screen w-full flex flex-col background">
+        <div className="min-h-screen w-full flex flex-col bg-white/80 dark:bg-stone-900/80 ">
             <div className="flex flex-col w-full h-full pt-16">
                 <div className="flex flex-col justify-between lg:flex-col">
                     <div className="p-2">
@@ -75,8 +75,8 @@ export default function Main() {
                     </div>
                     <div className="flex flex-col w-full items-center justify-center">
                         <div className="flex flex-col items-start p-4 justify-center w-full">
-                            <h4 className="text-4xl lg:text-3xl font-bold text-stone-500">
-                                Home
+                            <h4 className="text-4xl lg:text-3xl font-bold text-stone-500 dark:text-stone-200">
+                                Recent Uploads
                             </h4>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full gap-4 p-4 justify-center items-center">

@@ -29,6 +29,7 @@ export default function Upload() {
         await uploadVideo();
         // Calling the upload thumbnail function and getting the CID
         const thumbnailCID = await uploadThumbnail();
+        console.log(thumbnailCID)
         // Creating a object to store the metadata
         let data = {
             video: asset?.id,
@@ -82,10 +83,8 @@ export default function Upload() {
     const videoRef = useRef();
 
     return (
-        <div className="min-h-screen flex flex-col justify-center p-8 items-center w-full">
+        <div className="min-h-screen flex flex-col bg-main justify-center p-8 items-center w-full">
             <div className="flex flex-col space-y-8 w-full md:w-2/3 lg:w-3/5 xl:w-1/2 pt-16">
-
-
                 <div className="flex flex-col w-full">
                     <label className="text-primary text-sm">Title</label>
                     <input
@@ -120,7 +119,7 @@ export default function Upload() {
                         <select
                             value={category}
                             onChange={(e) => setCategory(e.target.value)}
-                            className={`placeholder:text-gray-600 cursor-pointer rounded-md mt-2 h-12 p-2 bg-1 verification-outline ${category ? 'border-lime-500 border-solid' : 'hover:border-solid hover:border-teal-500'} focus:outline-none`}
+                            className={`text-slate-600 cursor-pointer rounded-md mt-2 h-12 p-2 bg-1 verification-outline ${category ? 'border-lime-500 border-solid' : 'hover:border-solid hover:border-teal-500'} focus:outline-none`}
                         >
                             <option>Music</option>
                             <option>Sports</option>
@@ -211,10 +210,10 @@ export default function Upload() {
                         onClick={() => {
                             handleSubmit();
                         }}
-                        className="transition ease-in-out bg-sky-500 hover:scale-110 hover:bg-teal-500 duration-300 text-secondary rounded-lg flex space-x-1 px-4 justify-between flex-row items-center"
+                        className="transition ease-in-out bg-sky-500 hover:scale-110 hover:bg-teal-500 duration-300 text-white rounded-lg flex space-x-1 px-4 justify-between flex-row items-center"
                     >
                         <p>Upload</p>
-                        <CloudArrowUpIcon className="h-4 w-4 text-white" />
+                        <CloudArrowUpIcon className="h-4 w-4" />
                     </button>
                 </div>
             </div>

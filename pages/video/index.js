@@ -71,7 +71,7 @@ export default function VideoPage() {
                 variables: {
                     first: 20,
                     skip: 0,
-                    orderBy: "createdAt",
+                    orderBy: "date",
                     orderDirection: "desc",
                     where: {},
                 },
