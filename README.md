@@ -6,10 +6,11 @@
 
 > 🎥 WATCH VIDEO - View video NFTs that other people minted thanks to the public nature of blockchain technology.
 
-### [Demo Image 1](./assets/demo-images/web3-yt-demo-1.png)
+### ![Demo Image 1](./assets/demo-images/web3-yt-demo-1.png)
+### ![Demo Image 1](./assets/demo-images/web3-yt-demo-2.png)
 
 ---
-### 📦 Clone this dApp
+## 📦 Clone this dApp
 
 > clone/fork 🎞 Blocktube:
 
